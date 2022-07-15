@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_instagram_app/screens/switch_account_screen.dart';
 
 void main() {
   runApp(Application());
@@ -10,7 +11,8 @@ class Application extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: SplashScreen(),
+      debugShowCheckedModeBanner: false,
+      home: SwitchAccountScreen(),
     );
   }
 }
@@ -28,14 +30,35 @@ class SplashScreen extends StatelessWidget {
         ),
       ),
       child: Scaffold(
-        backgroundColor: Colors.transparent,
-        body: Center(
-          child: Text(
-            "Masoud Ranjbaran",
-            style: TextStyle(color: Colors.red),
-          ),
-        ),
-      ),
+          backgroundColor: Colors.transparent,
+          body: Stack(
+            alignment: Alignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 80),
+                child: Center(
+                  child: Image(
+                    image: AssetImage("images/logo_splash.png"),
+                  ),
+                ),
+              ),
+              Positioned(
+                bottom: 32,
+                child: Column(
+                  children: [
+                    Text(
+                      "from",
+                      style: TextStyle(color: Colors.grey),
+                    ),
+                    Text(
+                      "Jeffi Programmer (Github)",
+                      style: TextStyle(color: Colors.blue),
+                    )
+                  ],
+                ),
+              )
+            ],
+          )),
     );
   }
 }
