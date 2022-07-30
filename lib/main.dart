@@ -12,6 +12,20 @@ class Application extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        textTheme: TextTheme(
+          headline4:
+              TextStyle(fontFamily: "GB", fontSize: 16.0, color: Colors.white),
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+              primary: Color(0xfff35383),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15.0),
+              ),
+              textStyle: TextStyle(fontFamily: "GB", fontSize: 16.0)),
+        ),
+      ),
       home: SwitchAccountScreen(),
     );
   }
@@ -30,35 +44,36 @@ class SplashScreen extends StatelessWidget {
         ),
       ),
       child: Scaffold(
-          backgroundColor: Colors.transparent,
-          body: Stack(
-            alignment: Alignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 80),
-                child: Center(
-                  child: Image(
-                    image: AssetImage("images/logo_splash.png"),
-                  ),
+        backgroundColor: Colors.transparent,
+        body: Stack(
+          alignment: AlignmentDirectional.bottomCenter,
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 80.0),
+              child: Center(
+                child: Image(
+                  image: AssetImage("images/logo_splash.png"),
                 ),
               ),
-              Positioned(
-                bottom: 32,
-                child: Column(
-                  children: [
-                    Text(
-                      "from",
-                      style: TextStyle(color: Colors.grey),
-                    ),
-                    Text(
-                      "Jeffi Programmer (Github)",
-                      style: TextStyle(color: Colors.blue),
-                    )
-                  ],
-                ),
-              )
-            ],
-          )),
+            ),
+            Positioned(
+              bottom: 32.0,
+              child: Column(
+                children: [
+                  Text(
+                    "From",
+                    style: TextStyle(fontSize: 15.0, color: Colors.grey),
+                  ),
+                  Text(
+                    "JeffiProgrammer",
+                    style: TextStyle(fontSize: 15.0, color: Colors.blueAccent),
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
     );
   }
 }
